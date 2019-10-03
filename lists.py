@@ -39,14 +39,10 @@ import timeit
 #     lst.append(i+0.5)
 # print(lst)
 
-# tstart = time.time()
-# lst1 = list(range(10_000_000))
-# tend = time.time()
-# print(tend-tstart)
-#
-#
-# tstart = time.time()
-# lst1 = [range(10_000_000)]
-# tend = time.time()
-# print(tend-tstart)
+def a():
+    return list(range(100_000))
+print(min(timeit.repeat(a, number=1000, repeat=1)))
 
+def b():
+    return [x for x in range(100_000)]
+print(min(timeit.repeat(b, number=1000, repeat=1)))
