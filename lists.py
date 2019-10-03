@@ -42,11 +42,28 @@ from dis import dis
 
 def a():
     return list(range(100_000))
-print(min(timeit.repeat(a, number=1000, repeat=1)))
+# print(min(timeit.repeat(a, number=1000, repeat=1)))
 
 def b():
     return [x for x in range(100_000)]
-print(min(timeit.repeat(b, number=1000, repeat=1)))
+# print(min(timeit.repeat(b, number=1000, repeat=1)))
 
-# dis(a)
-# dis(b)
+
+num, rep = 100_000, 3
+lst = list(range(10_000))
+def c():
+    c = lst[:]
+    return c
+print(min(timeit.repeat(c, number=num, repeat=rep)))
+
+def d():
+    d = list(lst)
+    return d
+print(min(timeit.repeat(d, number=num, repeat=rep)))
+
+import copy
+def e():
+    e = copy.copy(lst)
+    return e
+print(min(timeit.repeat(e, number=num, repeat=rep)))
+
