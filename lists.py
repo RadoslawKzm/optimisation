@@ -38,6 +38,7 @@ import timeit
 #     lst.append(i)
 #     lst.append(i+0.5)
 # print(lst)
+from dis import dis
 
 def a():
     return list(range(100_000))
@@ -46,3 +47,6 @@ print(min(timeit.repeat(a, number=1000, repeat=1)))
 def b():
     return [x for x in range(100_000)]
 print(min(timeit.repeat(b, number=1000, repeat=1)))
+
+# dis(a)
+# dis(b)
