@@ -20,8 +20,9 @@ def test_sort():
 
 
 num, rep = 10, 10
-print('bisect >> ', min(timeit.repeat(test_bisect, number=num, repeat=rep)))
-print('sort >> ', min(timeit.repeat(test_sort, number=num, repeat=rep)))
+print(f'num, rep = {num:_}, {rep:_}')
+print(f'bisect >> {min(timeit.repeat(test_bisect, number=num, repeat=rep)):0.4f}s')
+print(f'sort >> {min(timeit.repeat(test_sort, number=num, repeat=rep)):0.4f}s')
 
 '''
 num10 rep10 run 1 append: 
