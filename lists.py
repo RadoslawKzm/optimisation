@@ -55,15 +55,17 @@ set_minus_test >> 0.8166s
 '''
 
 def list_making_test():
-    num, rep = 1_000, 1
     rang = 100_000
 
     def test_list():
         return list(range(rang))
-    print(f'list(range(number)) >> {min(timeit.repeat(test_list, number=num, repeat=rep)):0.4f}s')
 
     def test_comperhansion():
         return [x for x in range(rang)]
+
+    num, rep = 1_000, 1
+    print(f'range = {rang:_}, num, rep = {num:_}, {rep:_}')
+    print(f'list(range(number)) >> {min(timeit.repeat(test_list, number=num, repeat=rep)):0.4f}s')
     print(f'[x for x in range(number)] >> {min(timeit.repeat(test_comperhansion, number=num, repeat=rep)):0.4f}s')
 '''
 num, rep = 1_000, 1
@@ -75,22 +77,25 @@ list(range(number)) >> 2.4979s
 
 
 def list_coping_test():
-    num, rep = 100_000, 3
-    lst = list(range(10_000))
+    rang = 10_000
+    lst = list(range(rang))
     def test_colon():
         c = lst[:]
         return c
-    print(f'list[:] >> {min(timeit.repeat(test_colon, number=num, repeat=rep)):0.4f}s')
 
     def test_list():
         d = list(lst)
         return d
-    print(f'list(list) >> {min(timeit.repeat(test_list, number=num, repeat=rep)):0.4f}s')
 
     import copy
     def test_copy():
         e = copy.copy(lst)
         return e
+
+    num, rep = 100_000, 3
+    print(f'range = {rang:_}, num, rep = {num:_}, {rep:_}\n')
+    print(f'list[:] >> {min(timeit.repeat(test_colon, number=num, repeat=rep)):0.4f}s')
+    print(f'list(list) >> {min(timeit.repeat(test_list, number=num, repeat=rep)):0.4f}s')
     print(f'copy.copy(list) >> {min(timeit.repeat(test_copy, number=num, repeat=rep)):0.4f}s')
 
 '''
