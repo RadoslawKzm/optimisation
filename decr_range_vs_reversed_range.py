@@ -12,8 +12,9 @@ def range_reversed_test():
 
 
     num, rep = 100, 5
-    print('range(::-1)>> ', min(timeit.repeat(range_test, number=num, repeat=rep)))
-    print('reversed(range) >> ', min(timeit.repeat(reversed_test, number=num, repeat=rep)))
+    print(f'range = {rang:_}, num, rep = {num:_}, {rep:_}')
+    print(f'range(::-1)>> {min(timeit.repeat(range_test, number=num, repeat=rep)):0.4f}s')
+    print(f'reversed(range) >> {min(timeit.repeat(reversed_test, number=num, repeat=rep)):0.4f}s')
 
 # range_reversed_test()
 
