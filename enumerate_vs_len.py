@@ -16,10 +16,33 @@ def timing_test():
     print(f'enumerate_test >> {min(timeit.repeat(enumerate_test, number=num, repeat=rep)):0.4f}s')
     print(f'len_test >> {min(timeit.repeat(len_test, number=num, repeat=rep)):0.4f}s')
 
-timing_test()
+# timing_test()
 
 '''
 range = 1_000_000, num, rep = 10, 1
 enumerate_test >> 3.3295s
 len_test >> 3.7283s
+'''
+
+def timing_test2():
+    rang = 1_000_000
+    lst = list(range(rang))
+
+    def enumerate_test():
+        return [k for k, dummy in enumerate(lst)]
+
+    def len_test():
+        return [i for i in range(len(lst))]
+
+    num, rep = 10, 1
+    print(f'range = {rang:_}, num, rep = {num}, {rep}')
+    print(f'enumerate_test >> {min(timeit.repeat(enumerate_test, number=num, repeat=rep)):0.4f}s')
+    print(f'len_test >> {min(timeit.repeat(len_test, number=num, repeat=rep)):0.4f}s')
+
+# timing_test2()
+
+'''
+range = 1_000_000, num, rep = 10, 1
+enumerate_test >> 2.3946s
+len_test >> 1.1753s
 '''
