@@ -1,4 +1,7 @@
+import numpy as np
+import pandas as pd
 from matplotlib import pyplot as plt
+# pip install --only-binary :all: mysqlclient
 import random
 import collections
 
