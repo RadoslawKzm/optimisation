@@ -3,6 +3,7 @@ import timeit
 from time import time
 
 rang = 100_000_000
+
 tstart = time()
 lst = ['test' for _ in range(rang)]
 print(f'done making list in {time()-tstart:0.4f}')
@@ -32,6 +33,14 @@ test_suite()
 range = 100_000_000, num, rep = 1, 1
 list_test >> 9.3798s
 deque_test >> 8.6057s
+
+range = 100_000_000, num, rep = 1, 1
+deque_test >> 7.7353s
+
+range = 100_000_000, num, rep = 1, 1
+list_test >> 8.1333s
+
+
 '''
 
 
