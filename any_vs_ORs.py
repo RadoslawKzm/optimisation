@@ -1,11 +1,6 @@
 import timeit
 
 
-
-
-
-
-
 rang = 1000
 lst = list(range(rang))
 
